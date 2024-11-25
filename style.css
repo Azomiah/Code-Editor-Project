@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap');
+
+:root {
+    --bg-gradient: linear-gradient(to bottom right, #1a1a1a, #0a0a0a);
+    --window-bg: #1e1e1e;
+    --header-bg: #252525;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --accent-color: #404040;
+    --success-color: #4CAF50;
+    --error-color: #ff5f56;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    color: var(--text-primary);
+}
+
+.view {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-size: 2.5rem;
+}
+
+.title small {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin-top: 0.5rem;
+}
+
+.window {
+    width: 90%;
+    max-width: 1200px;
+    background: var(--window-bg);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+}
+
+.window-header {
+    background: var(--header-bg);
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.action-buttons span:hover {
+    opacity: 0.7;
+}
+
+.action-buttons .close { background: #ff5f56; }
+.action-buttons .minimize { background: #ffbd2e; }
+.action-buttons .maximize { background: #27c93f; }
+
+.language {
+    background: var(--accent-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.3rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.run-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--success-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.run-button:hover {
+    opacity: 0.9;
+}
+
+.window-body {
+    position: relative;
+    height: 400px;
+    display: flex;
+}
+
+.line-numbers {
+    width: 4rem;
+    background: #1a1a1a;
+    color: var(--text-secondary);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    padding: 1rem;
+    text-align: right;
+    user-select: none;
+    border-right: 1px solid var(--border-color);
+}
+
+.code-input, .code-output {
+    position: absolute;
+    left: 4rem;
+    top: 0;
+    width: calc(100% - 4rem);
+    height: 100%;
+    padding: 1rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    background: transparent;
+    color: var(--text-primary);
+}
+
+.code-input {
+    resize: none;
+    border: none;
+    background: var(--window-bg);
+    color: var(--text-primary);
+    z-index: 1;
+}
+
+.code-input:focus {
+    outline: none;
+}
+
+.code-output {
+    pointer-events: none;
+    z-index: 0;
+    margin: 0;
+}
+
+.console-panel {
+    border-top: 1px solid var(--border-color);
+    background: #1a1a1a;
+}
+
+.console-header {
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.clear-console {
+    background: var(--accent-color);
+    border: none;
+    color: var(--text-primary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.console-output {
+    padding: 1rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    min-height: 150px;
+    max-height: 150px;
+    overflow-y: auto;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+}
+
+.console-output .error {
+    color: var(--error-color);
+}
+
+.console-output .result {
+    color: var(--success-color);
+}
+
+.footer {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}

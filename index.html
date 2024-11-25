@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahir Azam's Code Editor</title>
+    <!-- Add Pyodide -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet">
+</head>
+<body class="dark">
+    <main class="view">
+        <h1 class="title">
+            Mahir Azam's Code Editor
+            <small>Professional Development Environment</small>
+        </h1>
+        <div class="window">
+            <div class="window-header">
+                <div class="action-buttons">
+                    <span class="close" data-action="close"></span>
+                    <span class="minimize" data-action="minimize"></span>
+                    <span class="maximize" data-action="maximize"></span>
+                </div>
+                <div class="header-controls">
+                    <select class="language">
+                        <option value="javascript" selected>JavaScript</option>
+                        <option value="python">Python</option>
+                    </select>
+                    <button class="run-button">
+                        <svg viewBox="0 0 24 24" width="16" height="16">
+                            <path fill="currentColor" d="M8 5v14l11-7z"/>
+                        </svg>
+                        Run (Ctrl + Enter)
+                    </button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="line-numbers"></div>
+                <textarea class="code-input" spellcheck="false" placeholder="// Start coding here..."></textarea>
+                <pre class="code-output">
+                    <code class="language-javascript"></code>
+                </pre>
+            </div>
+            <div class="console-panel">
+                <div class="console-header">
+                    <span>Console Output</span>
+                    <button class="clear-console">Clear</button>
+                </div>
+                <div class="console-output"></div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-item">Press Ctrl/Cmd + H for shortcuts</div>
+            <div class="footer-item">Created by Mahir Azam</div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
